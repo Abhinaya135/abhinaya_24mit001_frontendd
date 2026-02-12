@@ -124,7 +124,7 @@
       <h2 class="text-center mb-3">Send Us a Message</h2>
       <p class="text-center text-muted mb-4">We’d love to hear from you</p>
 
-      <form action="/submit" method="POST">
+      <form id="contactForm">
         <div class="mb-3">
           <input type="text" name="name" class="form-control" placeholder="Name" required>
         </div>
@@ -138,8 +138,49 @@
           <button type="submit" class="btn btn-danger px-4">Send</button>
         </div>
       </form>
+
     </div>
   </div>
+</section>
+
+<script>
+document.getElementById("contactForm").addEventListener("submit", async function(e) {
+  e.preventDefault();
+
+  const name = document.querySelector("input[name='name']").value.trim();
+  const email = document.querySelector("input[name='email']").value.trim();
+  const message = document.querySelector("textarea[name='message']").value.trim();
+
+  if (!name || !email || !message) {
+    alert("Please fill all fields");
+    return;
+  }
+
+  try {
+    const response = await fetch("https://abhinaya-24mit001-backend.onrender.com/submit", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ name, email, message })
+    });
+
+    const data = await response.json();
+
+    if (response.ok) {
+      alert("Message sent successfully ✅");
+      document.getElementById("contactForm").reset();
+    } else {
+      alert(data.message || "Error sending message ❌");
+    }
+
+  } catch (error) {
+    alert("Server error ⚠️ Please try again later.");
+    console.error(error);
+  }
+});
+</script>
+
 </section>
 
 <!-- GOOGLE MAP -->
@@ -181,3 +222,4 @@
 
 </body>
 </html>
+
