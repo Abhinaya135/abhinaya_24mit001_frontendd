@@ -1,0 +1,312 @@
+/* ================= GLOBAL ================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  background: #F4F9F9;
+  overflow-x: hidden;
+}
+
+/* ================= HERO ================= */
+.hero {
+  background: #f4c6c6;
+  padding: 20px 40px;
+  border-bottom: 1px solid #ddd;
+}
+
+.hero-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: auto;
+  flex-wrap: wrap; /* Allows stacking on mobile */
+  opacity: 0;
+  transform: translateY(-20px);
+  animation: heroFade 1s forwards;
+  animation-delay: 0.2s;
+}
+
+@keyframes heroFade {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-logo {
+  width: 170px;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+/* Center text */
+.hero-center {
+  text-align: center;
+  flex: 1;
+}
+
+.hero-title {
+  color: #B11218;
+  font-size: 34px;
+  margin: 0;
+  font-weight: bold;
+  opacity: 0;
+  animation: fadeIn 0.8s forwards;
+  animation-delay: 0.5s;
+}
+
+.hero-subtitle {
+  font-size: 18px;
+  color: #333;
+  opacity: 0;
+  animation: fadeIn 0.8s forwards;
+  animation-delay: 1s;
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+/* Contact box */
+.info-box {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.icon-box {
+  background: #B11218;
+  color: white;
+  padding: 10px;
+  border-radius: 6px;
+}
+
+.phone,
+.email {
+  color: #B11218;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* ================= NAVBAR ================= */
+.main-nav {
+  background: #B11218;
+  display: flex;
+  flex-wrap: wrap;
+  height: 55px;
+}
+
+.main-menu {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding-left: 40px;
+  flex: 1;
+  flex-wrap: wrap; /* Wraps menu on small screens */
+}
+
+.main-menu li {
+  position: relative;
+}
+
+.main-menu a {
+  display: block;
+  padding: 0 15px;
+  line-height: 55px;
+  color: white;
+  text-decoration: none;
+  border-right: 1px solid rgba(255, 255, 255, 0.4);
+  position: relative;
+}
+
+.main-menu a:hover {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.main-menu a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 8px;
+  width: 0;
+  height: 2px;
+  background: #fff;
+  transition: width 0.3s ease;
+}
+
+.main-menu a:hover::after {
+  width: 100%;
+}
+
+/* Dropdown */
+.main-menu li ul {
+  display: none;
+  position: absolute;
+  top: 55px;
+  left: 0;
+  background: white;
+  min-width: 180px;
+  list-style: none;
+  padding: 0;
+}
+
+.main-menu li ul a {
+  color: black;
+  padding: 10px;
+  line-height: normal;
+}
+
+.main-menu li:hover ul {
+  display: block;
+}
+
+/* Quote button */
+.quote {
+  background: black;
+}
+
+.quote a {
+  color: white;
+  padding: 0 25px;
+  line-height: 55px;
+  display: block;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+/* ================= ABOUT / COMPANY SECTION ================= */
+.about-section {
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.about-title {
+  text-align: center;
+  font-size: 42px;
+  font-weight: 700;
+  color: #2F3E46;
+  margin-bottom: 5px;
+}
+
+.about-subtitle {
+  text-align: center;
+  font-size: 24px;
+  font-weight: 700;
+  color: #7a0f14;
+  margin-bottom: 60px;
+  font-style: italic;
+}
+
+.company-heading {
+  text-align: center;
+  font-size: 32px;
+  letter-spacing: 2px;
+  color: #b11217;
+  margin-bottom: 40px;
+  font-family: Merriweather, serif;
+}
+
+.company-content p {
+  font-size: 18px;
+  line-height: 1.9;
+  color: #2F3E46;
+  text-align: justify;
+  margin-bottom: 25px;
+}
+
+/* ================= FOOTER ================= */
+.site-footer {
+  position: relative;
+  background: linear-gradient(135deg, #f4c6c6, #fff0f0);
+  color: #4d4d4d;
+  padding: 60px 20px 30px;
+  font-family: 'Arial', sans-serif;
+}
+
+.footer-wave {
+  position: absolute;
+  top: -50px;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  background: #b11217;
+  clip-path: polygon(0 100%, 100% 0, 100% 100%, 0% 100%);
+}
+
+.site-footer a {
+  color: #b11217;
+  text-decoration: none;
+  transition: color 0.3s, transform 0.3s;
+}
+
+.site-footer a:hover {
+  transform: scale(1.05);
+}
+
+.site-footer h5 {
+  font-family: 'Oswald', sans-serif;
+  font-size: 18px;
+  margin-bottom: 15px;
+  color: #b11217;
+}
+
+.footer-bottom {
+  margin-top: 20px;
+  font-size: 14px;
+  color: #7a1a1a;
+}
+
+/* ================= MOBILE FIX ================= */
+@media (max-width: 768px) {
+
+  .hero-row {
+    flex-direction: column;
+    text-align: center;
+    gap: 15px;
+  }
+
+  .info-box {
+    justify-content: center;
+  }
+
+  .main-menu {
+    flex-direction: column;
+    padding-left: 0;
+  }
+
+  .main-menu a {
+    border-right: none;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+  }
+
+  .quote a {
+    line-height: 45px;
+    text-align: center;
+  }
+
+  .about-title {
+    font-size: 32px;
+  }
+
+  .about-subtitle {
+    font-size: 20px;
+  }
+
+  .company-heading {
+    font-size: 28px;
+  }
+
+  .footer-wave {
+    height: 30px;
+  }
+
+  .site-footer h5 {
+    font-size: 16px;
+  }
+}
